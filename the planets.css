@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: linear-gradient(#040464,#57033e);
+    height: 100vh;
+    font-family: sans-serif;
+    
+}
+section{
+    background: url('space.jpg');
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ul{
+    text-align: center; /*modifer la position du texte*/
+}
+ul:hover li a{
+    opacity: 0;
+} /*tous les elements disparaissenet lorsque vous arretez sur un element de la liste*/
+ul li{
+    list-style: none; /* effacer les points ou debut de chaque element de la liste*/
+    margin: 10px 0;
+
+}
+ul li a{
+    color: aliceblue; /*changer la couleur de l'ecriture */
+    text-decoration: none; /*efacer la ligne sous chaque element de la liste*/
+    font-size: 20px;
+    font-weight: 500px;
+    letter-spacing: 4px; /*espace entre les lettres*/
+    background: rgb(20, 9, 167); /*donner une arrier-plan et couleur a chaque element*/
+    padding: 6px 15px; 
+    border-radius: 20px;/*changemant dans la forme de l'arrier-plan*/
+    display: inline-block; /*donner un form de la liste(inline block)et fait fonctionner l'operation de zoom*/
+    text-transform: uppercase; /* changer les lettres des majuscules*/
+    width: 125px;
+    transition: 0.5s; /*modifier le mouvement de zoom*/
+    position: relative; /*posistion de bouton au_dessus data text*/
+    z-index: 10;
+
+}
+ul li a:hover{
+    transform: scale(1.5); /*zoomez sur l'element*/
+    background: rgb(180, 13, 185); 
+    opacity: 1; /*tous les elements disparaissenet sauf cette element*/
+}
+ul li::after{
+    content: attr(data-text); /*le mot qui apparaitra sous l'element*/
+    color: rgb(251, 255, 250);
+    position: absolute; /*position de data text*/
+    left: 50%; 
+    top: 80%;
+    transform: translate(-50%,50%); /*modifier position data text de x,y*/
+    font-size: 50px; 
+    font-weight: 500px;
+    text-transform: uppercase;
+    opacity: 0; 
+    /*data text disparaissenet lorsque vous arretez sur un element de la liste*/
+    pointer-events: none;
+    transition: 0.5s; 
+}
+ul li:hover:after{ /*changement dans after*/
+    opacity: 1; /*data text disparaissenet sauf data text ce cette element*/
+    opacity: 0.5; 
+    letter-spacing: 5px;
+}
+ul li::before{
+    content: " ";
+    width: 180px;
+    height: 80px;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,70%);
+    border-radius: 50%; 
+    box-shadow: 0 0 80px orangered;
+    opacity: 0;
+    transition: 0.5s;
+    
+}
+ul li:hover::before{
+    opacity: 0.5;
+    width: 80px;
+}
